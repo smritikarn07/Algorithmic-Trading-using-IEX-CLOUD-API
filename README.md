@@ -1,4 +1,4 @@
-# Algorithmic-Trading-using-IEX-CLOUD-API
+# Algorithmic-Trading-using-IEX-Cloud-API
 
 - **User Input** : Portfolio Size of the investor, number of stocks to invest in (default = 50)
 - **Data Used** : Data Extracted from IEX Cloud API and data that contains a list of 500 S&P 500 listed companies
