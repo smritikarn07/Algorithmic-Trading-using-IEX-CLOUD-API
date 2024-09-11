@@ -50,7 +50,7 @@ Momentum investing is a trading strategy in which investors buy securities that 
 
 * **Low-quality momentum stocks** are ones that does not show any momentum for a long time.
 
-High-quality momentum stocks are  preferred because low-quality momentum can often be caused by short-term news that is unlikely to be repeated in the future.
+High-quality momentum stocks are  preferred because low-quality momentum can often be caused by short-term news that is likely to be repeated in the future.
 
 * To identify HQM, the strategy selects stocks from the highest percentiles of:
   * 1-month price returns
