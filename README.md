@@ -39,7 +39,7 @@ Thus, I've used an _**Application programming interface (API)**_ to automate and
 
 ### Quantitative Momentum Strategy:
 A Quantitative Momentum strategy is a strategy implemented to choose stocks that have increased in price the most. 
-Momentum is the rate at which a stock's or an index's returns vary. A trading method known as momentum investing involves buying stocks when they are rising and selling them when they appear to have peaked. The goal of the strategy is to exclude equities with the strongest momentum, or those that are reliable and consistently perform well. Because low-quality momentum can frequently be triggered by recent news that is unlikely to repeat itself in the future, high-quality momentum stocks are recommended.
+Momentum is the rate at which a stock's or an index's returns vary. A trading method known as momentum investing involves buying stocks when they are rising and selling them when they appear to have peaked. The goal of the strategy is to choose equities with the strongest momentum, or those that are reliable and consistently perform well. Because low-quality momentum can frequently be triggered by recent news that is  most likely to repeat itself in the future, thus, high-quality momentum stocks are recommended.
 
 "Momentum investing" refers to investing in the stocks that have increased in price the most.
 For this project, I've build an investing strategy that selects the n-stocks with the highest price momentum. Further calculating the recommended trades for an equal-weight portfolio of these n-stocks.
