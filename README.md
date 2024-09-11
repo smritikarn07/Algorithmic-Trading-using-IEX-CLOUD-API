@@ -67,14 +67,18 @@ High-quality momentum stocks are  preferred because low-quality momentum can oft
   * One-Month Price Return
 
 2. **HQM Score** is calculated to filter stocks in the investing strategy.
-The HQM Score is the arithmetic mean of the 5 momentum percentile scores that we calculated in the last section.
+The HQM Score is the arithmetic mean of the 5 momentum **percentile** scores that we calculated in the last section.
+   Q. Why mean of percentile scores of these metrics and not mean of the metric itself?
+   Ans: The mean of percentile scores is preferred over the mean of the raw metrics because it standardizes the metrics, ensuring they are on the same scale and      
+        comparable. Each metric has a different scale and significance (e.g., P/E vs. P/B), so averaging raw values would distort the analysis, while percentiles 
+        provide a consistent relative ranking across different metrics, offering a balanced comparison.
 
-3. **Accepting the number of shares** to be invested
+4. **Accepting the number of shares** to be invested
 _Strategy_: Investing in top n-high quality momentum stocks
 Accepts the number of stocks the investor is wants to invest in, identifying the 'n' best momentum stocks in our universe by sorting the DataFrame on the HQM Score column and dropping all but the top 'n' entries.
 Further, removing the remaining Low-Momentum Stocks
 
-4.  **Determining the Number of Shares** to Buy based on the HQM Score
+5.  **Determining the Number of Shares** to Buy based on the HQM Score
 
 ### Quantitative Value Strategy
 **Value investing** refers to investing in the stocks which are cheapest relative to common measures of business value (like earnings or assets).
@@ -85,17 +89,25 @@ Investing strategy is built that selects the 50 stocks with the best value metri
 A basket of valuation metrics to build a robust quantitive value strategies is considered and stocks are filtered with respect to the lowest percentiles on the following metrics:
 
 * **Price-to-earnings ratio**: It is the ratio for valuing a company that measures its current share price relative to its earnings per share (EPS). It indicates the dollar amount an investor can expect to invest in a company in order to receive $1 of that company's earnings. They determine the relative value of a company's shares in an apples-to-apples comparison and can also be used to compare a company against its own historical record or to compare aggregate markets against one another or over time.
+    * Low P/E: Stock is undervalued
 
-* **Price-to-book ratio**: It is a financial ratio used to compare a company’s current market price to its book value. Companies use this ratio to compare a firm's market capitalization to its book value. Book Value per Share is the value of the company’s assets as recorded on the balance sheet, minus liabilities, divided by the total number of shares outstanding. If the ratio is less than 1, then the stock price is undervalued, when ration is greater than 1, then the stock price is overvalued.
+* **Price-to-book ratio**: It is a financial ratio used to compare a company’s current market price to its book value. Companies use this ratio to compare a firm's market capitalization to its book value. Book Value per Share is the value of the company’s assets as recorded on the balance sheet, minus liabilities, divided by the total number of shares outstanding.
+    * P/B < 1: The stock price is undervalued.
 
-* **Price-to-sales ratio**: It is a valuation ratio that compares a company’s stock price to its revenues. It is an indicator of the value that financial markets have placed on each dollar of a company’s sales or revenues.
+* **Price-to-sales ratio**: It is a valuation ratio that compares a company’s stock price to its revenues. It is an indicator of the value that financial markets or investors have placed on each dollar of a company’s sales or revenues.
+    * Low P/S: The stock price is undervalued.
 
-* **Enterprise Value (EV)** : Market Cap plus Net debt plus Minorities.
-It is a valuation metric for stocks and is calculated by dividing the company’s market capitalization by the revenue in the most recent year; or, equivalently, divide the per-share stock price by the per-share revenue. It is a measure of a company's total value, often used as a more comprehensive alternative to equity market capitalization. It includes in its calculation the market capitalization of a company but also short-term and long-term debt as well as any cash on the company's balance sheet.
+* **Enterprise Value (EV)** is a measure of a company's total value, often viewed as a more comprehensive alternative to market capitalization. 
+    * EV = Market Capitalization + Total Debt - Cash Reserves
+    * Reflects actual cost of acquiring the entire company
 
 * **EBITDA** : Reported Earnings Before Interest, Tax, Depreciation and Amortization.
 
- **EV/GP** :Enterprise Value divided by Gross Profit
+* **EV/EBITDA** : Signifies how cheap or expensive the company is relative to its earnings.
+    * Low EV/EBITDA : Company is undervalued
+
+ **EV/GP** : Enterprise Value divided by Gross Profit
+    * Low EV/EBITDA : Company is undervalued
 
 1. **Computing percentiles** of these metrics after pulling raw data.
   * Price-to-earnings ratio
@@ -108,4 +120,28 @@ It is a valuation metric for stocks and is calculated by dividing the company’
 _Robust Value Score_ is the Arithmetic mean of the 5 percentile scores used above. The best 50 stocks are calculated by sorting the dataframe with respect to robust value scores of each stock. Portfolio size the investor is willing to invest.
 
 3. **Determining the Number of Shares** to Buy based on the robust value score
-_Strategy_: Investing the the top 50 high value stocks
+_Strategy_: Rank the companies from lowest to highest and focusing on companies with low scores. Further, Invest in the top 50 ranked stocks.
+
+
+### Comparison Between Momentum Investing Strategy and Value Investing Strategy:
+#### Value Investing Strategy:
+Advantages
+* Less Voltile
+* Long Term Potential (Useful for investors interested in long term investing and determining nice stocks)
+
+Disadvantages
+* Value Traps: Undervalued stocks may have underlying reasons to be undervalued
+* Slow Returns: Might take long to materialize
+
+**Best For**: People looking for long term investing
+
+#### Momentum Investing Strategy:
+Advantages
+* High Returns
+* Leverages market sentiment: Thus hyping up the stock prices more than original
+
+Disadvantages
+* Highly Volatile
+* Requires Precise timing
+  
+**Best For**: People looking for short term investing
